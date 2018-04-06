@@ -1,20 +1,18 @@
+import axios from 'axios';
+
 class StarshipsAPI {
     static getList() {
-        const data = fetch('https://swapi.co/api/starships/')
-            .then(res => res.json())
-            .then(res => {
-                res.from = 'starships';
-                return res;
-            });
+        const data = axios.get('https://swapi.co/api/starships/').then(res => {
+            res.data.from = 'starships';
+            return res.data;
+        });
         return data;
     }
     static getListById(id) {
-        const data = fetch(`https://swapi.co/api/starships/${id}/`)
-            .then(res => res.json())
-            .then(res => {
-                res.from = 'starships';
-                return res;
-            });
+        const data = axios.get(`https://swapi.co/api/starships/${id}/`).then(res => {
+            res.data.from = 'starships';
+            return res.data;
+        });
         return data;
     }
 }

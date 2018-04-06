@@ -1,20 +1,18 @@
+import axios from 'axios';
+
 class PeopleAPI {
     static getList() {
-        const data = fetch('https://swapi.co/api/people/')
-            .then(res => res.json())
-            .then(res => {
-                res.from = 'people';
-                return res;
-            });
+        const data = axios.get('https://swapi.co/api/people/').then(res => {
+            res.data.from = 'people';
+            return res.data;
+        });
         return data;
     }
     static getListById(id) {
-        const data = fetch(`https://swapi.co/api/people/${id}/`)
-            .then(res => res.json())
-            .then(res => {
-                res.from = 'people';
-                return res;
-            });
+        const data = axios.get(`https://swapi.co/api/people/${id}/`).then(res => {
+            res.data.from = 'people';
+            return res.data;
+        });
         return data;
     }
 }

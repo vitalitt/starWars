@@ -1,20 +1,18 @@
+import axios from 'axios';
+
 class PlanetsAPI {
     static getList() {
-        const data = fetch('https://swapi.co/api/planets/')
-            .then(res => res.json())
-            .then(res => {
-                res.from = 'planets';
-                return res;
-            });
+        const data = axios.get('https://swapi.co/api/planets/').then(res => {
+            res.data.from = 'planets';
+            return res.data;
+        });
         return data;
     }
     static getListById(id) {
-        const data = fetch(`https://swapi.co/api/planets/ ${id} /`)
-            .then(res => res.json())
-            .then(res => {
-                res.from = 'planets';
-                return res;
-            });
+        const data = axios.get(`https://swapi.co/api/planets/ ${id} /`).then(res => {
+            res.data.from = 'planets';
+            return res.data;
+        });
         return data;
     }
 }
