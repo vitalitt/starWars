@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
 import propTypes from 'prop-types';
-import RatingElement from '../../List/ListElement/RatingElement/RatingElement';
+import RatingElement from '../../List/ListElement/RatingElement/RatingContainer';
 import './index.css';
 
 const LargeListElement = ({ info }) => (

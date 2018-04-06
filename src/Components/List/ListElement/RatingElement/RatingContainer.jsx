@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Storage from '../../../../API/Storage';
+import RatingPresentation from './RatingPresentation';
 
-class RatingElement extends Component {
+class RatingContainer extends Component {
     static propTypes = {
         name: PropTypes.string.isRequired,
     };
@@ -19,7 +20,7 @@ class RatingElement extends Component {
     }
     setLastRating() {
         this.setState({
-            rating: Storage.getData(this.props.name) || 0,
+            rating: +Storage.getData(this.props.name) || 0,
         });
     }
     voteUp(e) {
@@ -38,14 +39,9 @@ class RatingElement extends Component {
     }
 
     render() {
-        return (
-            <div className="ratingButtons">
-                <div className="screen">{this.state.rating}</div>
-                <button onClick={this.voteUp}>Up</button>
-                <button onClick={this.voteDown}>Down</button>
-            </div>
-        );
+        const { rating } = this.state;
+        return <RatingPresentation rating={rating} voteUp={this.voteUp} voteDown={this.voteDown} />;
     }
 }
 
-export default RatingElement;
+export default RatingContainer;

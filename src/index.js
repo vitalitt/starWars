@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import PeopleAPI from './API/PeopleAPI';
 import PlanetsAPI from './API/PlanetsAPI';
 import StarshipsAPI from './API/StarshipsAPI';
+import PageContainer from './Components/List/Page/PageContainer';
 import PeoplePage from './Components/People/Page/Page';
 import PlanetsPage from './Components/Planets/Page/Page';
 import StarshipsPage from './Components/Starships/Page/Page';
@@ -37,15 +38,25 @@ ReactDOM.render(
             <Route path="/people" render={() => <List readData={PeopleAPI} />} />
             <Route
                 path="/people-page/:id"
-                render={props => <PeoplePage readData={PeopleAPI} {...props} />}
+                render={props => (
+                    <PageContainer Presentation={PeoplePage} readData={PeopleAPI} {...props} />
+                )}
             />
             <Route
                 path="/planets-page/:id"
-                render={props => <PlanetsPage readData={PlanetsAPI} {...props} />}
+                render={props => (
+                    <PageContainer Presentation={PlanetsPage} readData={PlanetsAPI} {...props} />
+                )}
             />
             <Route
                 path="/starships-page/:id"
-                render={props => <StarshipsPage readData={StarshipsAPI} {...props} />}
+                render={props => (
+                    <PageContainer
+                        Presentation={StarshipsPage}
+                        readData={StarshipsAPI}
+                        {...props}
+                    />
+                )}
             />
         </div>
     </Router>,
