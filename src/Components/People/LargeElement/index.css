@@ -1,0 +1,14 @@
+.item__wrap-large {
+    width: 550px;
+    background: #092459;
+    height: 230px;
+    margin: 5px auto;
+    text-align: center;
+}
+.item__wrap-large:hover {
+    background: #2750a0;
+    cursor: pointer;
+}
+.item__wrap-large .link {
+    color: wheat;
+}

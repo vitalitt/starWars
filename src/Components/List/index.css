@@ -1,0 +1,6 @@
+.heroesList{
+  width: 600px;
+  height: 800px;
+  overflow: auto;
+  margin: 0 auto;  
+}

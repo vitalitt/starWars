@@ -1,0 +1,27 @@
+.item__wrap {
+    width: 450px;
+    background: #092459;
+    height: 80px;
+    margin: 5px auto;
+    text-align: center;
+}
+.item__wrap:hover {
+    background: #2750a0;
+    cursor: pointer;
+}
+.header {
+    font-size: 22px;
+    font-weight: bold;
+    color: #c3aa36;
+    border: 1px dotted #c3aa36;
+}
+.itemName {
+    font-size: 20px;
+    font-weight: bold;
+    color: #2bb5d9;
+}
+.itemValue {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2b7114;
+}
