@@ -7,6 +7,7 @@ class Graphic extends Component {
         super();
         this.state = {
             data: '',
+            axis: '',
         };
         this.fakeData = this.fakeData.bind(this);
         this.generateData = this.generateData.bind(this);
@@ -25,7 +26,7 @@ class Graphic extends Component {
             const dataCount = Math.random() * (max - min) + min;
             const newArr = [`data${i}`];
             for (let j = 0; j < dataCount; j += 1) {
-                newArr.push(Math.random() * (max - min) + min);
+                newArr.push(Math.floor(Math.random() * (max - min) + min));
             }
             newColumn.push(newArr);
         }
@@ -35,9 +36,29 @@ class Graphic extends Component {
         const newData = {
             columns: newColumn,
             type: currType,
+            labels: true,
+        };
+        const newAxis = {
+            x: {
+                label: {
+                    text: 'X Label',
+                },
+            },
+            y: {
+                label: {
+                    text: 'Y Label',
+                },
+            },
+            y2: {
+                show: true,
+                label: {
+                    text: 'Y2 Label',
+                },
+            },
         };
         this.setState({
             data: newData,
+            axis: newAxis,
         });
     }
     fakeData() {
@@ -46,8 +67,9 @@ class Graphic extends Component {
     }
     render() {
         const { data } = this.state;
+        const { axis } = this.state;
 
-        return data ? <C3Chart data={data} /> : 'wait...';
+        return data ? <C3Chart data={data} axis={axis} /> : 'wait...';
     }
 }
 Graphic.propTypes = {
