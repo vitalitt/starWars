@@ -41,7 +41,6 @@ class ListElement extends Component {
         let newLarge;
         let newSmall;
         const { info } = this.props;
-        console.log(info);
         const { url } = this.props.info;
         const urlId = this.parseUrlId(url);
         // как вариант, можно передавать компоненты через props из index, но мне кажется так наглядней
