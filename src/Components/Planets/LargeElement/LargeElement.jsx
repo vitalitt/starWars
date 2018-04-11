@@ -4,7 +4,7 @@ import propTypes from 'prop-types';
 import RatingElement from '../../List/ListElement/RatingElement/RatingContainer';
 import './index.css';
 
-const LargeListElement = ({ info }) => (
+const LargeListElement = ({ info, urlId }) => (
     <div className="item__wrap-large">
         <div className="header"> {info.name} </div>
 
@@ -27,12 +27,13 @@ const LargeListElement = ({ info }) => (
         </div>
 
         <RatingElement name={info.name} />
-        <Link className="link" to={`/planets-page/${info.url.slice(-2)}`}>
+        <Link className="link" to={`/planets-page/${urlId}`}>
             learn more
         </Link>
     </div>
 );
 LargeListElement.propTypes = {
     info: propTypes.shape({}).isRequired,
+    urlId: propTypes.string.isRequired,
 };
 export default LargeListElement;

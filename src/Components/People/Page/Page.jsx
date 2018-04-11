@@ -1,9 +1,10 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import C3Chart from 'react-c3js';
 import './index.css';
 
-const PagePresentation = ({ fullData }) => (
+const PagePresentation = ({ fullData, data }) => (
     <div className="page__wrap">
         <div className="page__item">
             <span className="itemName">name: </span>
@@ -49,10 +50,12 @@ const PagePresentation = ({ fullData }) => (
         <Link className="link" to="/people">
             back
         </Link>
+        <C3Chart data={data} />
     </div>
 );
 PagePresentation.propTypes = {
     fullData: propTypes.shape({}).isRequired,
+    data: propTypes.shape({}).isRequired,
 };
 
 export default PagePresentation;

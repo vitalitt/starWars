@@ -4,7 +4,7 @@ import propTypes from 'prop-types';
 import RatingElement from '../../List/ListElement/RatingElement/RatingContainer';
 import './index.css';
 
-const LargeListElement = ({ info }) => (
+const LargeListElement = ({ info, urlId }) => (
     <div className="item__wrap-large">
         <div className="header"> {info.name} </div>
         <div className="item">
@@ -25,7 +25,7 @@ const LargeListElement = ({ info }) => (
         </div>
 
         <RatingElement name={info.name} />
-        <Link className="link" to={`/people-page/${info.url.slice(-2)}`}>
+        <Link className="link" to={`/people-page/${urlId}`}>
             {/* info.url - full url, we need only id */}
             learn more
         </Link>
@@ -47,6 +47,7 @@ LargeListElement.propTypes = {
         skin_color: propTypes.string.isRequired,
         url: propTypes.string.isRequired,
     }).isRequired,
+    urlId: propTypes.string.isRequired,
 };
 
 export default LargeListElement;
