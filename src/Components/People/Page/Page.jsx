@@ -1,18 +1,14 @@
 import React from 'react';
-import propTypes from 'prop-types';
 import PageInfo from '../PageInfo/PageInfo';
 import Graphic from '../../Graphic/Graphic';
 
 import './index.css';
 
-const PagePresentation = ({ fullData }) => (
+const PagePresentation = ({ fullData, id }) => (
     <div className="page__wrap">
-        <PageInfo fullData={fullData} />
+        <PageInfo fullData={fullData} id={id} />
         <Graphic type={['bar']} interval={1000} />
     </div>
 );
-PagePresentation.propTypes = {
-    fullData: propTypes.shape({}).isRequired,
-};
 
 export default PagePresentation;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Header from '../Header/Header';
 
 const Navbar = () => (
     <div className="main">
@@ -18,7 +19,11 @@ const Navbar = () => (
                 <li>
                     <Link to="/starships">starships</Link>
                 </li>
+                <li>
+                    <Link to="/login">login</Link>
+                </li>
             </ul>
+            <Header />
         </div>
     </div>
 );

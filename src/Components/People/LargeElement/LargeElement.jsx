@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import seapig, { OPTIONAL, REQUIRED } from 'seapig';
-import propTypes from 'prop-types';
 import { Card, CardHeader, CardTitle, CardText } from 'material-ui/Card';
 
 import './index.css';
@@ -23,7 +22,7 @@ class LargeListElement extends Component {
                 <CardText>hair_color: {info.hair_color}</CardText>
                 <CardText>height: {info.height}</CardText>
                 <CardText>mass: {info.mass}</CardText>
-                <div> { /*SEAPIG*/ }
+                <div>
                     {labelChildren}
                     <MuiThemeProvider>{ratingChildren}</MuiThemeProvider>
                 </div>
@@ -35,22 +34,5 @@ class LargeListElement extends Component {
     }
 }
 /* eslint-enable */
-LargeListElement.propTypes = {
-    info: propTypes.shape({
-        birth_year: propTypes.string.isRequired,
-        created: propTypes.string.isRequired,
-        edited: propTypes.string.isRequired,
-        eye_color: propTypes.string.isRequired,
-        gender: propTypes.string.isRequired,
-        hair_color: propTypes.string.isRequired,
-        height: propTypes.string.isRequired,
-        homeworld: propTypes.string.isRequired,
-        mass: propTypes.string.isRequired,
-        name: propTypes.string.isRequired,
-        skin_color: propTypes.string.isRequired,
-        url: propTypes.string.isRequired,
-    }).isRequired,
-    urlId: propTypes.string.isRequired,
-};
 
 export default LargeListElement;

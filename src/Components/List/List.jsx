@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 import v4 from 'uuid/v4';
-import PropTypes from 'prop-types';
 import ListElement from './ListElement/ListElement';
 
 import './index.css';
 
 class List extends Component {
-    static propTypes = {
-        readData: PropTypes.func.isRequired,
-    };
     constructor() {
         super();
         this.state = {

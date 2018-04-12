@@ -1,8 +1,8 @@
 import React from 'react';
-import propTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import './index.css';
 
-const PageInfo = ({ fullData }) => (
+const PageInfo = ({ fullData, id }) => (
     <div>
         <div className="page__item">
             <span className="itemName">name: </span>
@@ -33,25 +33,25 @@ const PageInfo = ({ fullData }) => (
             <span className="itemValue">{fullData.mass}</span>
         </div>
 
-        <div className="item">
+        <div className="page__item">
             <span className="itemName">skin_color: </span>
             <span className="itemValue">{fullData.skin_color}</span>
         </div>
 
         <div className="item">
             <span className="itemName">homeworld: </span>
-            <Link className="itemValue" to={`/planets-page/${fullData.homeworld.slice(-2)}`}>
+            <Link className="itemValue" to={`/people-page/${fullData.homeworld.slice(-2)}`}>
                 {fullData.homeworld}
             </Link>
         </div>
 
         <Link className="link" to="/people">
-            back
+            back to peopleList
+        </Link>
+        <br />
+        <Link className="link" to={`/people-edit/${id}`}>
+            edit page
         </Link>
     </div>
 );
-PageInfo.propTypes = {
-    fullData: propTypes.shape({}).isRequired,
-};
-
 export default PageInfo;

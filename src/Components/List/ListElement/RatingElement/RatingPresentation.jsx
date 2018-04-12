@@ -1,4 +1,3 @@
-import propTypes from 'prop-types';
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import { CardActions } from 'material-ui/Card';
@@ -12,11 +11,5 @@ const RatingPresentation = ({ rating, voteUp, voteDown }) => (
         </CardActions>
     </div>
 );
-
-RatingPresentation.propTypes = {
-    rating: propTypes.number.isRequired,
-    voteUp: propTypes.func.isRequired,
-    voteDown: propTypes.func.isRequired,
-};
 
 export default RatingPresentation;

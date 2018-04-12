@@ -1,6 +1,5 @@
 import c3 from 'c3';
 import React, { Component } from 'react';
-import propTypes from 'prop-types';
 
 class Graphic extends Component {
     constructor() {
@@ -61,9 +60,5 @@ class Graphic extends Component {
         );
     }
 }
-Graphic.propTypes = {
-    interval: propTypes.number.isRequired,
-    type: propTypes.shape.isRequired,
-};
 
 export default Graphic;

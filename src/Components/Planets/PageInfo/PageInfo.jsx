@@ -1,8 +1,7 @@
 import React from 'react';
-import propTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const PageInfo = ({ fullData }) => (
+const PageInfo = ({ fullData, id }) => (
     <div>
         <div className="page__item">
             <span className="itemName">name: </span>
@@ -43,12 +42,13 @@ const PageInfo = ({ fullData }) => (
         </div>
 
         <Link className="link" to="/planets">
-            back
+            back to planetsList
+        </Link>
+        <br />
+        <Link className="link" to={`/planets-edit/${id}`}>
+            edit page
         </Link>
     </div>
 );
-PageInfo.propTypes = {
-    fullData: propTypes.shape({}).isRequired,
-};
 
 export default PageInfo;

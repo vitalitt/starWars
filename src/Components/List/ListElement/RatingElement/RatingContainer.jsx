@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import Storage from '../../../../API/Storage';
 import RatingPresentation from './RatingPresentation';
 
 class RatingContainer extends Component {
-    static propTypes = {
-        name: PropTypes.string.isRequired,
-    };
     constructor() {
         super();
         this.state = {

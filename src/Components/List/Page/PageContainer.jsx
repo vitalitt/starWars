@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import propTypes from 'prop-types';
 
 class Page extends Component {
     constructor() {
@@ -22,22 +21,14 @@ class Page extends Component {
         return readData.getListById(id);
     }
     returnData() {
+        const { id } = this.props.match.params;
         const { fullData } = this.state;
         const { Presentation } = this.props;
-        return <Presentation fullData={fullData} />;
+        return <Presentation fullData={fullData} id={id} />;
     }
     render() {
         return <div>{this.state.fullData ? this.returnData() : 'wait...'}</div>;
     }
 }
-Page.propTypes = {
-    match: propTypes.shape({
-        params: propTypes.shape({
-            id: propTypes.string.isRequired,
-        }),
-    }).isRequired,
-    readData: propTypes.func.isRequired,
-    Presentation: propTypes.shape({}).isRequired,
-};
 
 export default Page;

@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import propTypes from 'prop-types';
 import { Card, CardHeader, CardTitle, CardText } from 'material-ui/Card';
 import RatingElement from '../../List/ListElement/RatingElement/RatingContainer';
 
@@ -23,8 +22,5 @@ const LargeListElement = ({ info, urlId }) => (
         </Link>
     </Card>
 );
-LargeListElement.propTypes = {
-    info: propTypes.shape({}).isRequired,
-    urlId: propTypes.string.isRequired,
-};
+
 export default LargeListElement;

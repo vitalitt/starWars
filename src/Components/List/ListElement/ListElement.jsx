@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import RatingElement from '../ListElement/RatingElement/RatingContainer';
@@ -93,23 +92,5 @@ class ListElement extends Component {
         );
     }
 }
-ListElement.propTypes = {
-    from: PropTypes.string.isRequired,
-    info: PropTypes.shape({
-        birth_year: PropTypes.string.isRequired,
-        created: PropTypes.string.isRequired,
-        edited: PropTypes.string.isRequired,
-        eye_color: PropTypes.string.isRequired,
 
-        gender: PropTypes.string.isRequired,
-        hair_color: PropTypes.string.isRequired,
-        height: PropTypes.string.isRequired,
-        homeworld: PropTypes.string.isRequired,
-
-        mass: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
-        skin_color: PropTypes.string.isRequired,
-        url: PropTypes.string.isRequired,
-    }).isRequired,
-};
 export default ListElement;

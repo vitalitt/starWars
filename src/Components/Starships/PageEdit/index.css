@@ -1,0 +1,25 @@
+.link{
+    width: 50px;
+    height: 20px;
+    color: black;
+}
+.editForm{
+    width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+.submit{
+    height: 40px;
+    width: 80px;
+
+    background-color: #86b1e9;
+    border: none;
+    border-radius: 20%;
+}
+.submit:hover{
+    cursor: pointer;
+
+    background-color: #3a6092;
+    border: none;
+    border-radius: 20%;
+}
