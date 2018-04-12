@@ -9,7 +9,7 @@ import './index.css';
 class LargeListElement extends Component {
     render() {
         const { info, urlId } = this.props;
-        const { ratingChildren, labelChildren } = seapig(this.props.children, {
+        const { rating_children, label_children } = seapig(this.props.children, {
             rating: REQUIRED,
             label: OPTIONAL,
         });
@@ -23,8 +23,10 @@ class LargeListElement extends Component {
                 <CardText>height: {info.height}</CardText>
                 <CardText>mass: {info.mass}</CardText>
                 <div>
-                    {labelChildren}
-                    <MuiThemeProvider>{ratingChildren}</MuiThemeProvider>
+                    <label_children />
+                    <MuiThemeProvider>
+                        <rating_children />
+                    </MuiThemeProvider>
                 </div>
                 <Link className="link" to={`/people-page/${urlId}`}>
                     learn more

@@ -1,0 +1,24 @@
+import React from 'react';
+import RefreshIndicator from 'material-ui/RefreshIndicator';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import './index.css';
+
+const style = {
+    container: {
+        position: 'relative',
+    },
+    refresh: {
+        display: 'inline-block',
+        position: 'relative',
+    },
+};
+
+const Wait = () => (
+    <MuiThemeProvider className="centerCircle">
+        <div>
+            <RefreshIndicator size={70} left={10} top={0} status="loading" style={style.refresh} />
+        </div>
+    </MuiThemeProvider>
+);
+
+export default Wait;

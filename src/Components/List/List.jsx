@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import v4 from 'uuid/v4';
 import ListElement from './ListElement/ListElement';
+import Wait from '../Wait/Wait';
 
 import './index.css';
 
@@ -26,11 +27,13 @@ class List extends Component {
         const { from } = this.state;
         return (
             <div className="heroesList">
-                {this.state.fullData
-                    ? this.state.fullData.results.map(item => (
-                          <ListElement info={item} from={from} key={v4()} />
-                      ))
-                    : 'wait...'}
+                {this.state.fullData ? (
+                    this.state.fullData.results.map(item => (
+                        <ListElement info={item} from={from} key={v4()} />
+                    ))
+                ) : (
+                    <Wait />
+                )}
             </div>
         );
     }

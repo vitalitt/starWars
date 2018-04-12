@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Wait from '../../Wait/Wait';
 
 class Page extends Component {
     constructor() {
@@ -27,7 +28,7 @@ class Page extends Component {
         return <Presentation fullData={fullData} id={id} />;
     }
     render() {
-        return <div>{this.state.fullData ? this.returnData() : 'wait...'}</div>;
+        return <div>{this.state.fullData ? this.returnData() : <Wait />}</div>;
     }
 }
 
