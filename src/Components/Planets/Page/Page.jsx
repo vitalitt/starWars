@@ -8,7 +8,7 @@ import './index.css';
 const PagePresentation = ({ fullData }) => (
     <div className="page__wrap">
         <PageInfo fullData={fullData} />
-        <Graphic type={['pie']} interval={1000} />
+        <Graphic type={['pie']} interval={1500} />
     </div>
 );
 PagePresentation.propTypes = {

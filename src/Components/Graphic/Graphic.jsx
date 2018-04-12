@@ -1,22 +1,36 @@
-import C3Chart from 'react-c3js';
+import c3 from 'c3';
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
 
 class Graphic extends Component {
     constructor() {
         super();
-        this.state = {
-            data: '',
-            axis: '',
-        };
-        this.fakeData = this.fakeData.bind(this);
         this.generateData = this.generateData.bind(this);
+        this.graphRef = React.createRef();
     }
     componentDidMount() {
-        this.interval = setInterval(this.fakeData, this.props.interval);
+        // this.interval = (this.fakeData, this.props.interval);
+        // this.generateData(4);
+        this.createGraph();
+        this.startAnimation();
     }
     componentWillUnmount() {
         clearInterval(this.interval);
+    }
+    startAnimation() {
+        setInterval(() => {
+            const data = this.generateData(4);
+            this.chart.load(data);
+        }, this.props.interval);
+    }
+    createGraph() {
+        this.chart = c3.generate({
+            bindto: this.graphRef.current,
+            data: {
+                columns: [],
+                type: this.props.type,
+            },
+        });
     }
     generateData(arrayCount) {
         const min = 1;
@@ -30,7 +44,6 @@ class Graphic extends Component {
             }
             newColumn.push(newArr);
         }
-        // const types = ['bar', 'step', 'pie'];
         const types = this.props.type;
         const currType = types[Math.floor(Math.random() * types.length)];
         const newData = {
@@ -38,38 +51,14 @@ class Graphic extends Component {
             type: currType,
             labels: true,
         };
-        const newAxis = {
-            x: {
-                label: {
-                    text: 'X Label',
-                },
-            },
-            y: {
-                label: {
-                    text: 'Y Label',
-                },
-            },
-            y2: {
-                show: true,
-                label: {
-                    text: 'Y2 Label',
-                },
-            },
-        };
-        this.setState({
-            data: newData,
-            axis: newAxis,
-        });
-    }
-    fakeData() {
-        this.name = 1;
-        this.generateData(4);
+        return newData;
     }
     render() {
-        const { data } = this.state;
-        const { axis } = this.state;
-
-        return data ? <C3Chart data={data} axis={axis} /> : 'wait...';
+        return (
+            <div id="myRef" ref={this.graphRef}>
+                TEST
+            </div>
+        );
     }
 }
 Graphic.propTypes = {
