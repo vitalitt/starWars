@@ -1,20 +1,16 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import './index.css';
+
+import { List, ListItem } from 'material-ui/List';
+import Divider from 'material-ui/Divider';
+import CommunicationChatBubble from 'material-ui/svg-icons/action/check-circle';
 
 const SmallListElement = ({ info }) => (
-    <div className="item__wrap">
-        <div className="header"> {info.name} </div>
-
-        <div className="item">
-            <span className="itemName">mass: </span>
-            <span className="itemValue">{info.mass}</span>
-        </div>
-
-        <div className="item">
-            <span className="itemName">height: </span>
-            <span className="itemValue">{info.height}</span>
-        </div>
+    <div>
+        <List>
+            <ListItem primaryText={info.name} rightIcon={<CommunicationChatBubble />} />
+        </List>
+        <Divider />
     </div>
 );
 SmallListElement.propTypes = {

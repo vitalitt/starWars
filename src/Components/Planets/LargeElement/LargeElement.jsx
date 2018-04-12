@@ -1,36 +1,27 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import propTypes from 'prop-types';
+import { Card, CardHeader, CardTitle, CardText } from 'material-ui/Card';
 import RatingElement from '../../List/ListElement/RatingElement/RatingContainer';
-import './index.css';
 
 const LargeListElement = ({ info, urlId }) => (
-    <div className="item__wrap-large">
-        <div className="header"> {info.name} </div>
+    <Card align="center">
+        <CardHeader align="left" title={info.name} subtitle="planet_name" />
 
-        <div className="item">
-            <span className="itemName">rotation_period: </span>
-            <span className="itemValue">{info.rotation_period}</span>
-        </div>
+        <CardTitle title="Planet_info" />
+        <CardText>rotation_period: {info.rotation_period}</CardText>
+        <CardText>orbital_period: {info.orbital_period}</CardText>
+        <CardText>diameter: {info.diameter}</CardText>
+        <CardText>climate: {info.climate}</CardText>
+        <MuiThemeProvider>
+            <RatingElement name={info.name} />
+        </MuiThemeProvider>
 
-        <div className="item">
-            <span className="itemName">orbital_period: </span>
-            <span className="itemValue">{info.orbital_period}</span>
-        </div>
-        <div className="item">
-            <span className="itemName">diameter: </span>
-            <span className="itemValue">{info.diameter}</span>
-        </div>
-        <div className="item">
-            <span className="itemName">climate: </span>
-            <span className="itemValue">{info.climate}</span>
-        </div>
-
-        <RatingElement name={info.name} />
         <Link className="link" to={`/planets-page/${urlId}`}>
             learn more
         </Link>
-    </div>
+    </Card>
 );
 LargeListElement.propTypes = {
     info: propTypes.shape({}).isRequired,

@@ -1,36 +1,27 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { Card, CardHeader, CardTitle, CardText } from 'material-ui/Card';
 import propTypes from 'prop-types';
 import RatingElement from '../../List/ListElement/RatingElement/RatingContainer';
 import './index.css';
 
 const LargeListElement = ({ info, urlId }) => (
-    <div className="item__wrap-large">
-        <div className="header"> {info.name} </div>
+    <Card align="center">
+        <CardHeader align="left" title={info.name} subtitle="starship_name" />
 
-        <div className="item">
-            <span className="itemName">name: </span>
-            <span className="itemValue">{info.name}</span>
-        </div>
+        <CardTitle title="Starship_info" />
+        <CardText>passengers: {info.passengers}</CardText>
+        <CardText>model: {info.model}</CardText>
+        <CardText>manufacturer: {info.manufacturer}</CardText>
+        <MuiThemeProvider>
+            <RatingElement name={info.name} />
+        </MuiThemeProvider>
 
-        <div className="item">
-            <span className="itemName">passengers: </span>
-            <span className="itemValue">{info.passengers}</span>
-        </div>
-        <div className="item">
-            <span className="itemName">model: </span>
-            <span className="itemValue">{info.model}</span>
-        </div>
-        <div className="item">
-            <span className="itemName">manufacturer: </span>
-            <span className="itemValue">{info.manufacturer}</span>
-        </div>
-
-        <RatingElement name={info.name} />
         <Link className="link" to={`/starships-page/${urlId}`}>
             learn more
         </Link>
-    </div>
+    </Card>
 );
 LargeListElement.propTypes = {
     info: propTypes.shape({}).isRequired,

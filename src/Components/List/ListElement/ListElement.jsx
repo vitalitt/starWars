@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
+import RatingElement from '../ListElement/RatingElement/RatingContainer';
 import PeopleSmallE from '../../People/SmallElement/SmallElement';
 import PeopleLargeE from '../../People/LargeElement/LargeElement';
 import PlanetsSmallE from '../../Planets/SmallElement/SmallElement';
@@ -42,19 +44,46 @@ class ListElement extends Component {
         let newSmall;
         const { info } = this.props;
         const { url } = this.props.info;
+        const { name } = this.props.info;
         const urlId = this.parseUrlId(url);
-        // как вариант, можно передавать компоненты через props из index, но мне кажется так наглядней
         if (from === 'people') {
-            newLarge = <PeopleLargeE info={info} urlId={urlId} />;
-            newSmall = <PeopleSmallE info={info} />;
+            newLarge = (
+                <MuiThemeProvider>
+                    <PeopleLargeE info={info} urlId={urlId}>
+                        <RatingElement rating name={name} />
+                        <span label>Rating:</span>
+                    </PeopleLargeE>
+                </MuiThemeProvider>
+            );
+            newSmall = (
+                <MuiThemeProvider>
+                    <PeopleSmallE info={info} />
+                </MuiThemeProvider>
+            );
         }
         if (from === 'planets') {
-            newLarge = <PlanetsLargeE info={info} urlId={urlId} />;
-            newSmall = <PlanetsSmallE info={info} />;
+            newLarge = (
+                <MuiThemeProvider>
+                    <PlanetsLargeE info={info} urlId={urlId} />
+                </MuiThemeProvider>
+            );
+            newSmall = (
+                <MuiThemeProvider>
+                    <PlanetsSmallE info={info} />
+                </MuiThemeProvider>
+            );
         }
         if (from === 'starships') {
-            newLarge = <StarshipsLargeE info={info} urlId={urlId} />;
-            newSmall = <StarshipsSmallE info={info} />;
+            newLarge = (
+                <MuiThemeProvider>
+                    <StarshipsLargeE info={info} urlId={urlId} />
+                </MuiThemeProvider>
+            );
+            newSmall = (
+                <MuiThemeProvider>
+                    <StarshipsSmallE info={info} />
+                </MuiThemeProvider>
+            );
         }
 
         return (
