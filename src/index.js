@@ -1,6 +1,9 @@
+// global
 import ReactDOM from 'react-dom';
 import React from 'react';
-import Routerwrap from './Components/Router/Router';
+// components
+import Routerwrap from './Router/Router';
+// css
 import './index.css';
 
 /* eslint-disable */

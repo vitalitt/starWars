@@ -1,6 +1,9 @@
+// global
 import React from 'react';
+// materialUI
 import RefreshIndicator from 'material-ui/RefreshIndicator';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+// css
 import './index.css';
 
 const style = {
