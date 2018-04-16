@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 // APIs
 import Storage from '../../API/Storage';
+import DatabaseLogin from '../../API/DatabaseLogin';
 // css
 import './index.css';
 
@@ -13,6 +14,7 @@ class Login extends Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.register = this.register.bind(this);
     }
 
     handleChange(event) {
@@ -21,11 +23,21 @@ class Login extends Component {
 
     handleSubmit(event) {
         const { value } = this.state;
-        Storage.setData('login', value);
-        this.setState({ redirect: true });
-        event.preventDefault();
+        const user = DatabaseLogin.getUser(value);
+        if (!user) {
+            alert('access denied');
+        } else {
+            Storage.setData('role', user.role);
+            Storage.setData('name', user.name);
+            this.setState({ redirect: true });
+            event.preventDefault();
+        }
     }
-
+    register() {
+        const { value } = this.state;
+        DatabaseLogin.setUser(value);
+        alert('registered');
+    }
     render() {
         const { redirect } = this.state;
         return redirect ? (
@@ -34,8 +46,9 @@ class Login extends Component {
             <form onSubmit={this.handleSubmit} className="row">
                 <div className="col-md-12">Пожалуйста, введите логин:</div>
                 <input type="text" value={this.state.value} onChange={this.handleChange} />
-
-                <input type="submit" value="Submit" />
+                <br />
+                <input type="submit" value="Login" />
+                <input type="button" value="Register" onClick={this.register} />
             </form>
         );
     }
